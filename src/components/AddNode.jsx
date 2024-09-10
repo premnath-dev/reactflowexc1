@@ -2,6 +2,7 @@ import React, { forwardRef, useImperativeHandle, useState } from "react";
 import useStore from "../store";
 import Modal from "./Modal/Modal";
 import FormikForm from "./Form/FormikForm";
+import { Position } from "@xyflow/react";
 
 const AddNodeButton = forwardRef((props, ref) => {
   const addNode = useStore((state) => state.addNode);
@@ -12,7 +13,16 @@ const AddNodeButton = forwardRef((props, ref) => {
       id: `node-${Date.now()}`,
       type: "custom",
       position: { x: Math.random() * 250, y: Math.random() * 250 },
-      data: { label: values.label, sublabel: values.sublabel },
+      data: {
+        label: values.label,
+        sublabel: values.sublabel,
+        toolbarVisible: true,
+        toolbarPosition: Position.Top,
+        backgroundColor: values.color,
+        image: values.image,
+      },
+      style: { backgroundColor: values.color },
+
     };
     addNode(newNode);
     setIsModalOpen(false);

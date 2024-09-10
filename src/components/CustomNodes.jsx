@@ -41,26 +41,64 @@ const CustomNode = ({ data }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <FaCopy title="Copy" style={{ margin: "0 5px", cursor: "pointer" }} />
+          <FaCopy title="Copy" style={{ margin: "0 5px", cursor: "pointer", color: "black" }} />
           <FaTrash
             title="Delete"
-            style={{ margin: "0 5px", cursor: "pointer" }}
+            style={{ margin: "0 5px", cursor: "pointer", color: "black" }}
           />
           <FaInfoCircle
             title="Info"
-            style={{ margin: "0 5px", cursor: "pointer" }}
+            style={{ margin: "0 5px", cursor: "pointer", color: "black" }}
           />
-          <FaEdit title="Edit" style={{ margin: "0 5px", cursor: "pointer" }} />
+          <FaEdit title="Edit" style={{ margin: "0 5px", cursor: "pointer", color: "black" }} />
         </NodeToolbar>
       )}
-      <img src={data?.image} style={{ width: "100%", height: "100%" }} />
-      <div style={{fontWeight: "bold", width: "100%", textAlign: "center", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 120%)"}}>{data?.label}</div>
-      <div style={{ fontWeight: "lighter", width: "100%", textAlign: "center", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, 190%)"}}>{data?.sublabel}</div>
-      <Handle
-        style={{ backgroundColor: data?.backgroundColor }}
-        type="target"
-        position={Position.Left}
+      <img
+        src={data?.image}
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -65%)",
+        }}
       />
+      <div
+        style={{
+          fontWeight: "bold",
+          color: "black",
+          width: "100%",
+          textAlign: "center",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, 120%)",
+        }}
+      >
+        {data?.label}
+      </div>
+      <div
+        style={{
+          fontWeight: "lighter",
+          color: "black",
+          width: "100%",
+          textAlign: "center",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, 190%)",
+        }}
+      >
+        {data?.sublabel}
+      </div>
+      {data?.label !== "Source" && (
+        <Handle
+          style={{ backgroundColor: data?.backgroundColor }}
+          type="target"
+          position={Position.Left}
+        />
+      )}
       <Handle
         style={{ backgroundColor: data?.backgroundColor }}
         type="source"

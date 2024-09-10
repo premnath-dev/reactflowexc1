@@ -25,7 +25,7 @@ const useStore = create((set, get) => ({
   onConnect: (connection) => {
     set(
       (state) => ({
-        edges: addEdge(connection, state.edges),
+        edges: addEdge({ ...connection, type: 'button' }, state.edges),
       }),
       false,
       "onConnect"
