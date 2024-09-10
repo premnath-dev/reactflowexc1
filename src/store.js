@@ -55,6 +55,15 @@ const useStore = create((set, get) => ({
       "setSelectedEdges"
     );
   },
+  addNode: (node) => {
+    set(
+      (state) => ({
+        nodes: [...state.nodes, node],
+      }),
+      false,
+      "addNode"
+    );
+  },
   setNodes: (nodes) => {
     set(
       (state) => ({
